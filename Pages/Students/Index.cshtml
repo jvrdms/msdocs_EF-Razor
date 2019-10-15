@@ -23,10 +23,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
                   asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Student[0].LastName)
+                    <!-- <span class="btn spinner-grow spinner-grow-sm"></span> -->
                 </a>
             </th>
             <th>
@@ -67,6 +68,46 @@
     var prevDisabled=!Model.Student.HasPreviousPage?"disabled":"";
     var nextDisabled=!Model.Student.HasNextPage?"disabled":"";
 }
+<ul class="pagination">
+    <li class="page-item @prevDisabled">
+        <a asp-page="./Index"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="1"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="page-link">
+               << 
+        </a>
+    </li>
+    <li class="page-item @prevDisabled">
+        <a asp-page="./Index"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="@(Model.Student.PageIndex - 1)"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="page-link">
+               < 
+        </a>
+    </li>
+    <li class="page-item @nextDisabled">
+        <a asp-page="./Index"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="@(Model.Student.PageIndex + 1)"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="page-link">
+               > 
+        </a>
+    </li>
+    <li class="page-item @nextDisabled">
+        <a asp-page="./Index"
+            asp-route-sortOrder="@Model.CurrentSort"
+            asp-route-pageIndex="@Model.Student.TotalPages"
+            asp-route-currentFilter="@Model.CurrentFilter"
+            class="page-link">
+               >> 
+        </a>
+    </li>
+<span>@Model.Student.PageIndex/@Model.Student.TotalPages</span>
+</ul>
+@*
 <a asp-page="./Index"
     asp-route-sortOrder="@Model.CurrentSort"
     asp-route-pageIndex="@(Model.Student.PageIndex - 1)"
@@ -81,3 +122,4 @@
     class="btn btn-outline-primary @nextDisabled">
         Next 
 </a>
+*@
