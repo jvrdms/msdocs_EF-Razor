@@ -5,7 +5,7 @@ using System.Linq;
 namespace ContosoUniversity.Models {
   public static class DbInitializer {
     public static void Initialize(SchoolContext context) {
-      context.Database.EnsureCreated();
+      // context.Database.EnsureCreated();
 
       // Look for any students.
       if (context.Student.Any()) {
