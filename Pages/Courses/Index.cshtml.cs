@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Models;
+using ContosoUniversity.Models.SchoolViewModels;
 
 namespace ContosoUniversity.Pages.Courses {
   public class IndexModel : PageModel {
@@ -15,12 +16,20 @@ namespace ContosoUniversity.Pages.Courses {
       _context = context;
     }
 
-    public IList<Course> Course { get; set; }
-
+    // public IList<Course> Course { get; set; }
+    public IList<CourseViewModel> CourseVM { get; set; }
     public async Task OnGetAsync() {
-      Course = await _context.Courses
-          .Include(c => c.Department)
-          .AsNoTracking().ToListAsync();
+      CourseVM = await _context.Courses
+                    .Select(p => new CourseViewModel {
+                      CourseID = p.CourseID,
+                      Title = p.Title,
+                      Credits = p.Credits,
+                      DepartmentName = p.Department.Name
+                    }).ToListAsync();
+
+      // Course = await _context.Courses
+      //     .Include(c => c.Department)
+      //     .AsNoTracking().ToListAsync();
 
     }
   }
