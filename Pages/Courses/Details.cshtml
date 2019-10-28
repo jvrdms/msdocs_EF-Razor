@@ -12,10 +12,10 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Course.Title)
+            @Html.DisplayNameFor(model => model.Course.CourseID)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Course.Title)
+            @Html.DisplayFor(model => model.Course.CourseID)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Course.Credits)
@@ -27,7 +27,8 @@
             @Html.DisplayNameFor(model => model.Course.Department)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Course.Department.DepartmentID)
+            @*@Html.DisplayFor(model => model.Course.Department.DepartmentID)*@
+            @Html.DisplayFor(model => model.Course.Department.Name)
         </dd>
     </dl>
 </div>
