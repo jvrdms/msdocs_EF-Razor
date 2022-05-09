@@ -1,5 +1,5 @@
-![release](https://badgen.net/github/release/babel/babel)
-![tag](https://badgen.net/github/tag/micromatch/micromatch)
+![release](https://badgen.net/github/release/jvrdms/msdocs_EF-Razor)
+![tag](https://badgen.net/github/tag/jvrdms/msdocs_EF-Razor)
 
 # msdocs_EF-Razor
 [![](https://badgen.net/badge/Docs/EF-Razor/blue?icon=windows)][link-docs]
